@@ -28,7 +28,7 @@
   --heading-font-size-m: 11.664px;
   --heading-font-size-s: 13.28px;
   --heading-font-size-xs: 10.72px;
-  --nav-height: 1000px;
+  --nav-height: 100px;
   --header-height: var(--nav-height);
 }
 
@@ -143,7 +143,7 @@
     --heading-font-size-m: 11.664px;
     --heading-font-size-s: 13.28px;
     --heading-font-size-xs: 10.72px;
-    --nav-height: 1000px;
+    --nav-height: 100px;
   }
 }
 
