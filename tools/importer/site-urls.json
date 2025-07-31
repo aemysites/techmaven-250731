@@ -1,0 +1,17 @@
+{
+  "originUrl": "https://travel.state.gov",
+  "urls": [
+    {
+      "url": "https://travel.state.gov/content/travel/en/passports.html",
+      "source": "MANUAL",
+      "targetPath": "/content/travel/en/passports",
+      "id": "cf34aba16bd2613492fd984dbc630d746126152f"
+    }
+  ],
+  "crawlOptions": {
+    "strategy": "manual",
+    "strategiesAttempted": [
+      "MANUAL"
+    ]
+  }
+}
