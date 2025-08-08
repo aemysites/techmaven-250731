@@ -1,28 +1,25 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Ensure we reference existing elements and retain all text content
-  // The block name is 'Columns (columns4)' as a single-cell header
+  // Header row must exactly match example
   const headerRow = ['Columns (columns4)'];
-
-  // Find the menu container and all immediate li children
+  // Get all direct <li> of the <ul> (they are the columns)
   const ul = element.querySelector('ul');
-  let menuCells = [];
+  let columnCells = [];
   if (ul) {
     const lis = ul.querySelectorAll(':scope > li');
-    menuCells = Array.from(lis).map(li => {
-      // Each cell contains the anchor only, preserve formatting and attributes
+    columnCells = Array.from(lis).map(li => {
+      // Each li contains a <p><a>...</a></p> so we extract just the anchor element
       const a = li.querySelector('a');
       return a ? a : '';
     });
   }
-  // If list is empty, create an empty cell for layout integrity
-  if (menuCells.length === 0) {
-    menuCells = [''];
+  if (columnCells.length === 0) {
+    columnCells = [''];
   }
-
+  // Table: first row is the header, second is the columns (one per menu item, no list wrapping)
   const table = WebImporter.DOMUtils.createTable([
     headerRow,
-    menuCells
+    columnCells
   ], document);
   element.replaceWith(table);
 }
