@@ -45,3 +45,135 @@
     padding: 40px 32px;
   }
 }
+
+.hero {
+  width: 100%;
+  background-color: #0c3c6b;
+  background-image: url('your-world-map.png'); /* Replace with actual image asset */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* Main flex row: logo and text tight, left-aligned */
+.hero > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8px;    /* Reduced for logo flush left */
+  padding-right: 0;
+  width: auto;
+  height: 100%;
+  gap: 18px;            /* Controls space between logo and text block */
+}
+
+/* Logo column */
+.hero > div > div:first-child {
+  display: flex;
+  align-items: center;
+  margin-right: 0;      /* Remove default margin, use gap on parent */
+  height: 100%;
+}
+
+/* Logo image */
+.hero picture,
+.hero img {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #fff;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+  position: static;
+  z-index: auto;
+}
+
+/* Text block */
+.hero > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0;
+}
+
+/* Heading */
+.hero h1 {
+  color: #fff;
+  font-size: 2.05rem;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 2px 0;
+  letter-spacing: 0;
+  text-align: left;
+  padding: 0;
+}
+
+/* Subtitle */
+.hero p {
+  color: #fff;
+  font-size: 1.04rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.048em;
+  text-align: left;
+  padding: 0;
+}
+
+/* Red underline/accent */
+.hero::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: #c63230;
+  width: 100%;
+  display: block;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 700px) {
+  .hero {
+    min-height: unset;
+    padding: 0;
+  }
+  .hero > div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 8px;
+  }
+  .hero picture,
+  .hero img {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+  }
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .hero p {
+    font-size: 0.8rem;
+  }
+}
